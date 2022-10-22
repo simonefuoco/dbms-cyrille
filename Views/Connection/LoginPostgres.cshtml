@@ -1,0 +1,80 @@
+﻿@using dbms_cyrille.Models
+@model LoginPostgresViewModel
+
+@{
+    ViewData["Title"] = "LoginPostgres";
+}
+
+<section class="vh-100">
+
+    <div class="container-fluid h-custom">
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <!-- Hostname input -->
+
+                    <div class="form-outline mb-4">
+                        <label asp-for="Hostname" class="form-label"></label>
+                        <input asp-for="Hostname" class="form-control form-control-lg" placeholder="Enter Hostname" />
+                        <span asp-validation-for="Hostname" class="text-danger"></span>
+                    </div>
+
+                    <!-- Username input-->
+                    <div class="form-outline mb-3">
+                        <label asp-for="Username" class="control-label"></label>
+                        <input asp-for="Username" class="form-control form-control-lg" placeholder="Enter Username" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+
+
+                    <!-- DBname input-->
+                    <div class="form-outline mb-3">
+                        <label asp-for="DBname" class="control-label"></label>
+                        <input asp-for="DBname" class="form-control form-control-lg" placeholder="Enter DBname" />
+                        <span asp-validation-for="DBname" class="text-danger"></span>
+                    </div>
+
+                    <!-- Port input -->
+                    <div class="form-outline mb-3">
+                        <label asp-for="Port" class="control-label"></label>
+                        <input asp-for="Port" class="form-control form-control-lg" placeholder="Enter the Port" />
+                        <span asp-validation-for="Port" class="text-danger"></span>
+                    </div>
+
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control form-control-lg" placeholder="Enter password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <input type="submit" value="Connection" class="btn btn-primary btn-lg btn-block" />
+                        @Html.ValidationSummary(true,"",new{@class="alert-danger"})
+                    </div>
+                    <div>
+                        <a asp-action="Index">Back to List</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+                        
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

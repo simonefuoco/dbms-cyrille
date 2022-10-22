@@ -15,7 +15,7 @@
                      class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form asp-action="Login">
+                <form asp-action="LoginPostgres">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <!-- Hostname input -->
@@ -65,6 +65,9 @@
                     </div>
 
                 </form>
+
+                <!-- TODO: da cancellare -->
+                <p>@ViewData["connectionString"]</p>
             </div>
         </div>
     </div>

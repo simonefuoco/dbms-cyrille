@@ -22,4 +22,19 @@ public class ConnectionController : Controller
     {
         return View();
     }
+
+    [HttpPost]
+    public IActionResult LoginPostgres(LoginPostgresViewModel model)
+    {
+        string conn = $"User ID={model.Username};Password={model.Password};Host={model.Hostname};Database={model.DBname};Port={model.Port}";
+        // var connection = new NpgsqlConnection(conn);
+        ViewData["connectionString"] = conn;
+        return View(model);
+    }
+
+    [HttpPost]
+    public IActionResult LoginSqlserver(LoginSqlserverViewModel model)
+    {
+        return View(model);
+    }
 }
